@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SenacFoods
 {
-    public partial class cozinha : Form
+    public partial class FrmUsuario : Form
     {
-        public cozinha()
+        public FrmUsuario()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace SenacFoods
         private void fecha_Click(object sender, EventArgs e)
         {
             this.Close();
-            var prm = new frmPrincipal();
+            var prm = new FrmPrincipal();
             prm.Show();
         }
     }

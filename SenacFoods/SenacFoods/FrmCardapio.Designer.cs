@@ -1,6 +1,6 @@
 ﻿namespace SenacFoods
 {
-    partial class Cardapio
+    partial class FrmCardapio
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cardapio));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCardapio));
             panel2 = new Panel();
             minimiza = new Label();
             fecha = new Label();
@@ -83,15 +83,16 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // Cardapio
+            // FrmCardapio
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Cardapio";
+            Name = "FrmCardapio";
             SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             TopMost = true;
             panel2.ResumeLayout(false);

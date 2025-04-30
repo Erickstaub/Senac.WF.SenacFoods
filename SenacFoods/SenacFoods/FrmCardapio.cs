@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SenacFoods
 {
-    public partial class Cardapio : Form
+    public partial class FrmCardapio : Form
     {
-        public Cardapio()
+        public FrmCardapio()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace SenacFoods
         private void fecha_Click(object sender, EventArgs e)
         {
             this.Close();
-            var prm = new frmPrincipal();
+            var prm = new FrmPrincipal();
             prm.Show();
         }
     }

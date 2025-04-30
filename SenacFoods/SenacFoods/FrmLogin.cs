@@ -10,7 +10,7 @@ namespace SenacFoods
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var prm = new frmPrincipal();
+            var prm = new FrmPrincipal();
             prm.Show();
         }
 

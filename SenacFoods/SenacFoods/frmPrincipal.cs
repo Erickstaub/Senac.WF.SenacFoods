@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SenacFoods
 {
-    public partial class frmPrincipal : Form
+    public partial class FrmPrincipal : Form
     {
-        public frmPrincipal()
+        public FrmPrincipal()
         {
             InitializeComponent();
         }
@@ -32,28 +32,28 @@ namespace SenacFoods
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var car = new Cardapio();
+            var car = new FrmCardapio();
             car.ShowDialog();
         }
 
         private void btncom_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var com = new comanda();
+            var com = new FrmComanda();
             com.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var coz = new cozinha();
+            var coz = new FrmPedidoCozinha();
             coz.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var usu = new usuario();
+            var usu = new FrmUsuario();
             usu.Show();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace SenacFoods
 {
-    partial class usuario
+    partial class FrmComanda
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmComanda));
             panel2 = new Panel();
             minimiza = new Label();
             fecha = new Label();
@@ -43,10 +43,10 @@
             panel2.Controls.Add(minimiza);
             panel2.Controls.Add(fecha);
             panel2.Controls.Add(pictureBox1);
-            panel2.Location = new Point(0, 0);
+            panel2.Location = new Point(-1, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(805, 78);
-            panel2.TabIndex = 9;
+            panel2.TabIndex = 7;
             // 
             // minimiza
             // 
@@ -83,15 +83,16 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // usuario
+            // FrmComanda
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "usuario";
-            Text = "Form3";
+            Name = "FrmComanda";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "comanda";
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

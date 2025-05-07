@@ -9,9 +9,27 @@ namespace SenacFoods
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            var prm = new FrmPrincipal();
-            prm.Show();
+            bool loginValido = ValidateLogin(TxtLogin.Text, TxtSenha.Text);
+
+            if (loginValido)
+            {
+                this.Hide();
+                var prm = new FrmPrincipal(TxtLogin.Text, TxtSenha.Text);
+                prm.Show();
+            }
+        }
+
+        private bool ValidateLogin(string nome, string senha)
+        {
+            if (nome == "admin" && senha == "123") { 
+                return true;
+            }
+            else
+            {
+              MessageBox.Show("Tudo errado");
+            }
+
+                return false;
         }
 
         private void TxtLogin_TextChanged(object sender, EventArgs e)

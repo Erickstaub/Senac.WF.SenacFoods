@@ -12,9 +12,10 @@ namespace SenacFoods
 {
     public partial class FrmPrincipal : Form
     {
-        public FrmPrincipal()
+        public FrmPrincipal(string nome, string senha)
         {
             InitializeComponent();
+         
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -55,6 +56,16 @@ namespace SenacFoods
             this.Hide();
             var usu = new FrmUsuario();
             usu.Show();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://opontodaesfiha.com.br/opontodaesfiha");
         }
     }
 }

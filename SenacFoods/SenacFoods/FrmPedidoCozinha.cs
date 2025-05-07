@@ -20,7 +20,7 @@ namespace SenacFoods
         private void fecha_Click(object sender, EventArgs e)
         {
             this.Close();
-            var prm = new FrmPrincipal();
+            var prm = new FrmPrincipal("","");
             prm.Show();
         }
     }

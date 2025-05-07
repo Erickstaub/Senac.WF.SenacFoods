@@ -175,8 +175,9 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
-            // frmPrincipal
+            // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -185,7 +186,7 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "frmPrincipal";
+            Name = "FrmPrincipal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmPrincipal";
             panel1.ResumeLayout(false);

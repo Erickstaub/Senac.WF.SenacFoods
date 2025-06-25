@@ -24,7 +24,7 @@ namespace SenacFoods
             bool UsuarioValido = false;
             using(var banco = new ComandaDBContext())
             {
-                var usuario = banco.Usuarios.FirstOrDefault(u => u.Email == nome && u.Senha == senha);
+                var usuario = banco.Usuarios.FirstOrDefault(u => u.Email.ToLower().Equals( nome.ToLower()) && u.Senha == senha);
                 if (usuario is not null)
                     UsuarioValido = true;
 

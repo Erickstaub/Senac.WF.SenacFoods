@@ -34,7 +34,7 @@ namespace SenacFoods
         {
             this.Hide();
             var car = new FrmCardapio();
-            car.ShowDialog();
+            car.Show();
         }
 
         private void btncom_Click(object sender, EventArgs e)

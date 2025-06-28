@@ -45,6 +45,15 @@ namespace SenacFoods
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+           
+           new FrmCardapioCad().ShowDialog();
+  
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             this.Close();
             var pr = new FrmCardapioCad();
             pr.Show();

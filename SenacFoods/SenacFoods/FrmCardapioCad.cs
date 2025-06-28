@@ -46,7 +46,8 @@ namespace SenacFoods
 
         private void SalvarCardapio()
         {
-            using (var banco = new ComandaDBContext()) { 
+            using (var banco = new ComandaDBContext())
+            {
                 string nome = txtNom.Text;
                 string descricao = txtDesc.Text;
                 decimal.TryParse(txtPrec.Text, out var preco);
@@ -54,13 +55,34 @@ namespace SenacFoods
                 var cardapio = new CardapioItem()
                 {
                     Descricao = descricao,
-                    Titulo = nome, 
+                    Titulo = nome,
                     Preco = preco,
                     PossuiPreparo = possuiPreparo
                 };
                 banco.CardapioItems.Add(cardapio);
                 banco.SaveChanges();
             }
+            MessageBox.Show("Cardapio salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
+        }
+
+        private void FrmCardapioCad_Load(object sender, EventArgs e)
+        {
+            BuscarCardapio();
+        }
+
+        private void BuscarCardapio()
+        {
+            using (var bd = new ComandaDBContext())
+            {
+                var cardapios = bd.CardapioItems.ToList();
+                dataGridView1.DataSource = cardapios;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SalvarCardapio();
         }
     }
 }

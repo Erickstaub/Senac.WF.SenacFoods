@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCardapioCad));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel2 = new Panel();
             minimiza = new Label();
             fecha = new Label();
             pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
+            dataGridView1 = new DataGridView();
+            button1 = new Button();
             txtDesc = new RichTextBox();
             txtPrec = new TextBox();
             txtNom = new TextBox();
@@ -45,6 +48,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -96,6 +100,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(txtDesc);
             groupBox1.Controls.Add(txtPrec);
             groupBox1.Controls.Add(txtNom);
@@ -112,6 +118,38 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cadastro de Cardapio";
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 7F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Location = new Point(479, 57);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(299, 242);
+            dataGridView1.TabIndex = 12;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Red;
+            button1.FlatStyle = FlatStyle.Popup;
+            button1.Font = new Font("Comic Sans MS", 15F);
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(479, 306);
+            button1.Name = "button1";
+            button1.Size = new Size(69, 53);
+            button1.TabIndex = 11;
+            button1.Text = "+";
+            button1.TextAlign = ContentAlignment.TopCenter;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // txtDesc
             // 
             txtDesc.Location = new Point(168, 212);
@@ -122,14 +160,14 @@
             // 
             // txtPrec
             // 
-            txtPrec.Location = new Point(166, 141);
+            txtPrec.Location = new Point(168, 141);
             txtPrec.Name = "txtPrec";
             txtPrec.Size = new Size(241, 45);
             txtPrec.TabIndex = 9;
             // 
             // txtNom
             // 
-            txtNom.Location = new Point(168, 42);
+            txtNom.Location = new Point(166, 57);
             txtNom.Name = "txtNom";
             txtNom.Size = new Size(241, 45);
             txtNom.TabIndex = 8;
@@ -165,7 +203,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 49);
+            label1.Location = new Point(12, 57);
             label1.Name = "label1";
             label1.Size = new Size(93, 38);
             label1.TabIndex = 4;
@@ -174,15 +212,16 @@
             // 
             // btnSalvar
             // 
-            btnSalvar.BackColor = Color.Lime;
+            btnSalvar.BackColor = Color.Red;
             btnSalvar.FlatStyle = FlatStyle.Popup;
-            btnSalvar.Font = new Font("Segoe UI", 30F);
-            btnSalvar.ForeColor = SystemColors.ActiveCaptionText;
-            btnSalvar.Location = new Point(612, 265);
+            btnSalvar.Font = new Font("Comic Sans MS", 15F);
+            btnSalvar.ForeColor = SystemColors.ControlLightLight;
+            btnSalvar.Location = new Point(554, 306);
             btnSalvar.Name = "btnSalvar";
-            btnSalvar.Size = new Size(180, 94);
+            btnSalvar.Size = new Size(218, 53);
             btnSalvar.TabIndex = 3;
-            btnSalvar.Text = " + ";
+            btnSalvar.Text = "ADISIONAR";
+            btnSalvar.TextAlign = ContentAlignment.TopCenter;
             btnSalvar.UseVisualStyleBackColor = false;
             btnSalvar.Click += btnSalvar_Click;
             // 
@@ -196,11 +235,14 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmCardapioCad";
             Text = "FrmCardapioCad";
+            TopMost = true;
+            Load += FrmCardapioCad_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -219,5 +261,7 @@
         private RichTextBox txtDesc;
         private TextBox txtPrec;
         private TextBox txtNom;
+        private Button button1;
+        private DataGridView dataGridView1;
     }
 }

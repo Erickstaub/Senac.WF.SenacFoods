@@ -42,6 +42,7 @@ namespace SenacFoods
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             SalvarCardapio();
+            this.Close();
         }
 
         private void SalvarCardapio()
@@ -63,7 +64,6 @@ namespace SenacFoods
                 banco.SaveChanges();
             }
             MessageBox.Show("Cardapio salvo com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
         }
 
         private void FrmCardapioCad_Load(object sender, EventArgs e)

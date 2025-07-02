@@ -34,11 +34,11 @@
             fecha = new Label();
             pictureBox1 = new PictureBox();
             groupBox1 = new GroupBox();
-            button3 = new Button();
+            btnmaisitem = new Button();
             button2 = new Button();
             button1 = new Button();
             dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
+            txtPesquisa = new TextBox();
             label1 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -94,7 +94,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(btnmaisitem);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(dataGridView1);
@@ -105,18 +105,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Cardapio";
             // 
-            // button3
+            // btnmaisitem
             // 
-            button3.BackColor = Color.Lime;
-            button3.FlatStyle = FlatStyle.Popup;
-            button3.ForeColor = SystemColors.ActiveCaptionText;
-            button3.Location = new Point(643, 281);
-            button3.Name = "button3";
-            button3.Size = new Size(134, 60);
-            button3.TabIndex = 3;
-            button3.Text = "+ ITEM";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            btnmaisitem.BackColor = Color.Lime;
+            btnmaisitem.FlatStyle = FlatStyle.Popup;
+            btnmaisitem.ForeColor = SystemColors.ActiveCaptionText;
+            btnmaisitem.Location = new Point(643, 281);
+            btnmaisitem.Name = "btnmaisitem";
+            btnmaisitem.Size = new Size(134, 60);
+            btnmaisitem.TabIndex = 3;
+            btnmaisitem.Text = "+ ITEM";
+            btnmaisitem.UseVisualStyleBackColor = false;
+            btnmaisitem.Click += btnmaisitem_Click;
             // 
             // button2
             // 
@@ -150,12 +150,13 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // textBox1
+            // txtPesquisa
             // 
-            textBox1.Location = new Point(513, 88);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(264, 31);
-            textBox1.TabIndex = 9;
+            txtPesquisa.Location = new Point(513, 88);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.Size = new Size(264, 31);
+            txtPesquisa.TabIndex = 9;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
             // 
             // label1
             // 
@@ -173,7 +174,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtPesquisa);
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -202,8 +203,8 @@
         private DataGridView dataGridView1;
         private Button button2;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox txtPesquisa;
         private Label label1;
-        private Button button3;
+        private Button btnmaisitem;
     }
 }

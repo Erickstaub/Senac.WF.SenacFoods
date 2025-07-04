@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             panel1 = new Panel();
+            button1 = new Button();
             groupBox1 = new GroupBox();
             button4 = new Button();
             button3 = new Button();
@@ -55,8 +56,24 @@
             panel1.Size = new Size(803, 449);
             panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackgroundImageLayout = ImageLayout.Stretch;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 14F);
+            button1.ForeColor = SystemColors.Control;
+            button1.Location = new Point(217, 107);
+            button1.Name = "button1";
+            button1.Size = new Size(166, 82);
+            button1.TabIndex = 7;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
+            // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(btncom);
@@ -107,7 +124,7 @@
             btncom.ForeColor = SystemColors.Control;
             btncom.Location = new Point(217, 20);
             btncom.Name = "btncom";
-            btncom.Size = new Size(166, 154);
+            btncom.Size = new Size(166, 81);
             btncom.TabIndex = 1;
             btncom.UseVisualStyleBackColor = false;
             btncom.Click += btncom_Click;
@@ -209,5 +226,6 @@
         private PictureBox pictureBox1;
         private Label fecha;
         private Label minimiza;
+        private Button button1;
     }
 }

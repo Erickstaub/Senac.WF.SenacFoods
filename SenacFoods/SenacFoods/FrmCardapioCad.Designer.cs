@@ -220,7 +220,7 @@
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(218, 53);
             btnSalvar.TabIndex = 3;
-            btnSalvar.Text = "ADISIONAR";
+            btnSalvar.Text = "ADICIONAR";
             btnSalvar.TextAlign = ContentAlignment.TopCenter;
             btnSalvar.UseVisualStyleBackColor = false;
             btnSalvar.Click += btnSalvar_Click;

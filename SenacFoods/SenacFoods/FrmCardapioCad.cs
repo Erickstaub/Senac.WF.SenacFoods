@@ -12,13 +12,28 @@ namespace SenacFoods
 {
     public partial class FrmCardapioCad : Form
     {
+        private CardapioItem _cardapioItem;
         public FrmCardapioCad()
         {
             InitializeComponent();
         }
         public FrmCardapioCad(CardapioItem cardapioItem)
         {
+            _cardapioItem = cardapioItem;
             InitializeComponent();
+            CarregarDados();
+        }
+
+        private void CarregarDados()
+        {
+            if (_cardapioItem != null)
+            {
+                txtNom.Text = _cardapioItem.Titulo;
+                txtDesc.Text = _cardapioItem.Descricao;
+                txtPrec.Text = _cardapioItem.Preco.ToString("F2");
+                checkBox1.Checked = _cardapioItem.PossuiPreparo;
+
+            }
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -45,11 +60,36 @@ namespace SenacFoods
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            SalvarCardapio();
-            this.Close();
+            if (_cardapioItem == null)
+            {
+                InserirCardapio();
+                this.Close();
+            }
+            else
+            {
+                AtualizarCardapio();
+            }
         }
 
-        private void SalvarCardapio()
+        private void AtualizarCardapio()
+        {
+            using (var banco = new ComandaDBContext())
+            {
+                string titulo = txtNom.Text;
+                string descr = txtDesc.Text;
+                decimal.TryParse(txtPrec.Text, out var preco);
+                bool possuiPreparo = checkBox1.Checked;
+                CardapioItem cardapioItem = banco.CardapioItems.First(x => x.Id == _cardapioItem.Id);
+                cardapioItem.Titulo = titulo;
+                cardapioItem.Descricao = descr;
+                cardapioItem.Preco = preco;
+                cardapioItem.PossuiPreparo = possuiPreparo;
+                banco.CardapioItems.Update(cardapioItem);
+                banco.SaveChanges();
+            }
+        }
+
+        private void InserirCardapio()
         {
             using (var banco = new ComandaDBContext())
             {
@@ -86,7 +126,7 @@ namespace SenacFoods
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SalvarCardapio();
+            InserirCardapio();
         }
     }
 }

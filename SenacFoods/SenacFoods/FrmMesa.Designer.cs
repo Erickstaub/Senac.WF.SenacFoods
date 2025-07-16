@@ -151,6 +151,7 @@
             button2.TabIndex = 2;
             button2.Text = "# EDITAR";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -162,6 +163,7 @@
             button1.TabIndex = 1;
             button1.Text = "X EXCLUIR";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // dataGridView1
             // 

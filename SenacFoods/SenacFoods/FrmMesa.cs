@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pomelo.EntityFrameworkCore.MySql.ValueGeneration.Internal;
 
 namespace SenacFoods
 {
     public partial class FrmMesa : Form
     {
+        Mesa? mesaselec;
         public FrmMesa()
         {
             InitializeComponent();
@@ -53,6 +55,36 @@ namespace SenacFoods
         {
             var valor = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value?.ToString();
             label1.Text = valor;
+            mesaselec = dataGridView1.Rows[e.RowIndex].DataBoundItem as Mesa;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Excluir
+            if (mesaselec != null)
+            {
+                using (var bd = new ComandaDBContext())
+                {
+                    bd.Mesas.Remove(mesaselec);
+                    bd.SaveChanges();
+                }
+                MessageBox.Show("Mesa excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                BuscarMesa();
+                mesaselec = null;
+
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Editar
+            if (mesaselec != null)
+            {
+                var cdpcad = new FrmMesaCad(mesaselec);
+                cdpcad.Show();
+                BuscarMesa();
+                mesaselec = null;
+            }
         }
     }
 }

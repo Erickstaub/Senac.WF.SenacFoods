@@ -117,6 +117,7 @@
             label1.Size = new Size(32, 54);
             label1.TabIndex = 11;
             label1.Text = ".";
+            label1.Click += label1_Click;
             // 
             // pictureBox2
             // 

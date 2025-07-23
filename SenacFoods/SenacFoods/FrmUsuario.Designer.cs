@@ -33,14 +33,19 @@
             minimiza = new Label();
             fecha = new Label();
             pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            TxtLogin = new TextBox();
-            TxtSenha = new TextBox();
             label1 = new Label();
-            btnEntrar = new Button();
+            txtPesquisa = new TextBox();
+            groupBox1 = new GroupBox();
+            pictureBox2 = new PictureBox();
+            btnmaisitem = new Button();
+            btnEditar = new Button();
+            btnExcluir = new Button();
+            dataGridView1 = new DataGridView();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -51,8 +56,8 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(805, 78);
-            panel2.TabIndex = 9;
+            panel2.Size = new Size(803, 75);
+            panel2.TabIndex = 8;
             // 
             // minimiza
             // 
@@ -75,7 +80,7 @@
             fecha.Size = new Size(53, 55);
             fecha.TabIndex = 6;
             fecha.Text = "X";
-            fecha.Click += fecha_Click;
+            fecha.Click += fecha_Click_1;
             // 
             // pictureBox1
             // 
@@ -89,87 +94,116 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(24, 116);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(224, 223);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 10;
-            pictureBox2.TabStop = false;
-            // 
-            // TxtLogin
-            // 
-            TxtLogin.BackColor = SystemColors.HighlightText;
-            TxtLogin.Font = new Font("Comic Sans MS", 18F);
-            TxtLogin.ForeColor = SystemColors.ControlText;
-            TxtLogin.Location = new Point(362, 95);
-            TxtLogin.Name = "TxtLogin";
-            TxtLogin.Size = new Size(366, 58);
-            TxtLogin.TabIndex = 11;
-            TxtLogin.Text = "ALTERAR NOME";
-            TxtLogin.Enter += TxtLogin_Enter;
-            TxtLogin.Leave += TxtLogin_Leave;
-            // 
-            // TxtSenha
-            // 
-            TxtSenha.BackColor = SystemColors.HighlightText;
-            TxtSenha.Font = new Font("Comic Sans MS", 18F);
-            TxtSenha.ForeColor = SystemColors.ControlText;
-            TxtSenha.Location = new Point(362, 174);
-            TxtSenha.Name = "TxtSenha";
-            TxtSenha.Size = new Size(366, 58);
-            TxtSenha.TabIndex = 12;
-            TxtSenha.Text = "ALTERAR SENHA";
-            TxtSenha.Enter += TxtSenha_Enter;
-            TxtSenha.Leave += TxtSenha_Leave;
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(79, 364);
+            label1.Location = new Point(149, 96);
             label1.Name = "label1";
-            label1.Size = new Size(112, 38);
+            label1.Size = new Size(26, 25);
             label1.TabIndex = 13;
-            label1.Text = "Apelido";
+            label1.Text = "⌕";
             // 
-            // btnEntrar
+            // txtPesquisa
             // 
-            btnEntrar.BackColor = Color.Red;
-            btnEntrar.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            btnEntrar.FlatAppearance.MouseOverBackColor = Color.FromArgb(224, 224, 224);
-            btnEntrar.FlatStyle = FlatStyle.Flat;
-            btnEntrar.Font = new Font("Comic Sans MS", 24F);
-            btnEntrar.ForeColor = Color.Honeydew;
-            btnEntrar.Location = new Point(362, 275);
-            btnEntrar.Name = "btnEntrar";
-            btnEntrar.Size = new Size(366, 138);
-            btnEntrar.TabIndex = 14;
-            btnEntrar.Text = "SAIR";
-            btnEntrar.UseVisualStyleBackColor = false;
-            btnEntrar.Click += btnEntrar_Click;
+            txtPesquisa.Location = new Point(181, 90);
+            txtPesquisa.Name = "txtPesquisa";
+            txtPesquisa.Size = new Size(264, 31);
+            txtPesquisa.TabIndex = 12;
+            txtPesquisa.TextChanged += txtPesquisa_TextChanged;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(pictureBox2);
+            groupBox1.Controls.Add(btnmaisitem);
+            groupBox1.Controls.Add(btnEditar);
+            groupBox1.Controls.Add(btnExcluir);
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Location = new Point(0, 116);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(803, 336);
+            groupBox1.TabIndex = 11;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Usuario";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(533, 30);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(224, 223);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 17;
+            pictureBox2.TabStop = false;
+            // 
+            // btnmaisitem
+            // 
+            btnmaisitem.BackColor = Color.Lime;
+            btnmaisitem.FlatStyle = FlatStyle.Popup;
+            btnmaisitem.ForeColor = SystemColors.ActiveCaptionText;
+            btnmaisitem.Location = new Point(643, 281);
+            btnmaisitem.Name = "btnmaisitem";
+            btnmaisitem.Size = new Size(134, 60);
+            btnmaisitem.TabIndex = 3;
+            btnmaisitem.Text = "+ USUARIO";
+            btnmaisitem.UseVisualStyleBackColor = false;
+            btnmaisitem.Click += btnmaisitem_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.BackColor = Color.Yellow;
+            btnEditar.Enabled = false;
+            btnEditar.FlatStyle = FlatStyle.Popup;
+            btnEditar.Location = new Point(23, 281);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(134, 60);
+            btnEditar.TabIndex = 2;
+            btnEditar.Text = "# EDITAR";
+            btnEditar.UseVisualStyleBackColor = false;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // btnExcluir
+            // 
+            btnExcluir.BackColor = Color.Red;
+            btnExcluir.Enabled = false;
+            btnExcluir.FlatStyle = FlatStyle.Popup;
+            btnExcluir.Location = new Point(487, 281);
+            btnExcluir.Name = "btnExcluir";
+            btnExcluir.Size = new Size(150, 60);
+            btnExcluir.TabIndex = 1;
+            btnExcluir.Text = "X EXCLUIR";
+            btnExcluir.UseVisualStyleBackColor = false;
+            btnExcluir.Click += btnExcluir_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(23, 33);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(422, 242);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnEntrar);
             Controls.Add(label1);
-            Controls.Add(TxtSenha);
-            Controls.Add(TxtLogin);
-            Controls.Add(pictureBox2);
+            Controls.Add(txtPesquisa);
+            Controls.Add(groupBox1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FrmUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";
+            Load += FrmUsuario_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,10 +214,13 @@
         private Label minimiza;
         private Label fecha;
         private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private TextBox TxtLogin;
-        private TextBox TxtSenha;
         private Label label1;
-        private Button btnEntrar;
+        private TextBox txtPesquisa;
+        private GroupBox groupBox1;
+        private Button btnmaisitem;
+        private Button btnEditar;
+        private Button btnExcluir;
+        private DataGridView dataGridView1;
+        private PictureBox pictureBox2;
     }
 }

@@ -25,5 +25,8 @@ namespace SenacFoods
         public DbSet<ComandaItem> Comandaitems { get; set; }
         public DbSet<PedidoCozinha> PedidoCozinhas { get; set; }
         public DbSet<PedidoCozinhaItem> PedidoCozinhaItems { get; set; }
+       
+
+
     }
 }

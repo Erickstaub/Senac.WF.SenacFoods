@@ -12,6 +12,7 @@ namespace SenacFoods
 {
     public partial class FrmUsuario : Form
     {
+        Usuario? ususelec;
         public FrmUsuario()
         {
             InitializeComponent();
@@ -20,30 +21,30 @@ namespace SenacFoods
         private void fecha_Click(object sender, EventArgs e)
         {
             this.Close();
-            var prm = new FrmPrincipal("","");
+            var prm = new FrmPrincipal("", "");
             prm.Show();
         }
 
         private void TxtLogin_Enter(object sender, EventArgs e)
         {
-            TxtLogin.Text = string.Empty;
+            //TxtLogin.Text = string.Empty;
         }
 
         private void TxtLogin_Leave(object sender, EventArgs e)
         {
-            if (TxtLogin.Text == string.Empty)
-                TxtLogin.Text = "USUARIO";
+            //if (TxtLogin.Text == string.Empty)
+            // TxtLogin.Text = "USUARIO";
         }
 
         private void TxtSenha_Enter(object sender, EventArgs e)
         {
-            TxtSenha.Text = string.Empty;
+            // TxtSenha.Text = string.Empty;
         }
 
         private void TxtSenha_Leave(object sender, EventArgs e)
         {
-            if (TxtSenha.Text == string.Empty)
-                TxtSenha.Text = "SENHA";
+            //   if (TxtSenha.Text == string.Empty)
+            //  TxtSenha.Text = "SENHA";
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
@@ -51,6 +52,80 @@ namespace SenacFoods
             this.Close();
             var ini = new FrmLogin();
             ini.Show();
+        }
+
+        private void FrmUsuario_Load(object sender, EventArgs e)
+        {
+            BuscarUsuario();
+        }
+
+        private void BuscarUsuario()
+        {
+            using (var bd = new ComandaDBContext())
+            {
+                var usuario = bd.Usuarios.AsQueryable();
+                if (!string.IsNullOrEmpty(txtPesquisa.Text))
+                {
+                    usuario = usuario.Where(c => c.Nome.Contains(txtPesquisa.Text) ||
+                                                c.Email.Contains(txtPesquisa.Text));
+                }
+                dataGridView1.DataSource = usuario.ToList();
+            }
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            BuscarUsuario();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > 0)
+            {
+                ususelec = dataGridView1.Rows[e.RowIndex].DataBoundItem as Usuario;
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+               
+            }
+        }
+
+        private void btnmaisitem_Click(object sender, EventArgs e)
+        {
+            new FrmUsuarioCad().ShowDialog();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (ususelec != null)
+            {
+                using (var bd = new ComandaDBContext())
+                {
+                    bd.Usuarios.Remove(ususelec);
+                    bd.SaveChanges();
+                }
+                MessageBox.Show("Usuario excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                BuscarUsuario();
+                ususelec = null;
+
+            }
+        }
+
+        private void fecha_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            var a = new FrmPrincipal(" ", "");
+            a.Show();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (ususelec != null)
+            {
+                var usucad = new FrmUsuarioCad(ususelec);
+                usucad.Show();
+                BuscarUsuario();
+                ususelec = null;
+            }
         }
     }
 }

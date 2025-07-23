@@ -86,5 +86,10 @@ namespace SenacFoods
                 mesaselec = null;
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

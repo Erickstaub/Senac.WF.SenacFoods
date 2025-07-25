@@ -185,6 +185,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMesa";
             Text = "FrmMesa";
             Load += FrmMesa_Load;

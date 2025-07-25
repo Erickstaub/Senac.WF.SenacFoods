@@ -91,7 +91,7 @@
             TxtLogin.Name = "TxtLogin";
             TxtLogin.Size = new Size(366, 58);
             TxtLogin.TabIndex = 0;
-            TxtLogin.Text = "USUARIO";
+            TxtLogin.Text = "EMAIL";
             TxtLogin.TextChanged += TxtLogin_TextChanged;
             TxtLogin.Enter += TxtLogin_Enter;
             TxtLogin.Leave += TxtLogin_Leave;
@@ -164,6 +164,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

@@ -29,25 +29,21 @@ namespace SenacFoods
         {
             if (_usuario != null)
             {
-                TxtLogin.Text = _usuario.Nome;
+                TxtNome.Text = _usuario.Nome;
                 TxtSenha.Text = _usuario.Senha;
                 TxtEmail.Text = _usuario.Email;
-                
-
-
-
             }
         }
+
         private void InserirCardapio()
         {
             using (var banco = new ComandaDBContext())
             {
-                string nome = TxtLogin.Text;
+                string nome = TxtNome.Text;
                 string senha = TxtSenha.Text;
                 string email = TxtEmail.Text;
                 int ativo = 1;
-                string perfil = comboBox1.Text;
-
+                string perfil = CBPerfil.Text;
                 var usu = new Usuario()
                 {
                     Nome = nome,
@@ -55,8 +51,6 @@ namespace SenacFoods
                     Email = email,
                     Ativo = Convert.ToBoolean(ativo),
                     Perfil = perfil,
-                    
-
                 };
                 banco.Usuarios.Add(usu);
                 banco.SaveChanges();
@@ -70,12 +64,12 @@ namespace SenacFoods
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text != TxtSenha.Text || TxtLogin.Text == null || TxtSenha.Text == null || TxtEmail.Text == null)
+            if (TxtConfSenha.Text != TxtSenha.Text || TxtNome.TextLength <= 1 || TxtSenha.TextLength <= 1 || TxtEmail.TextLength <= 1)
             {
                 MessageBox.Show("Algo de errado ocorreu! ", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
+            {   
                 if (_usuario == null)
                 {
                     InserirCardapio();
@@ -83,20 +77,20 @@ namespace SenacFoods
                 }
                 else
                 {
-                    AtualizarUsuario();
+                    EditarUsuario();
                 }
             }
         }
 
-        private void AtualizarUsuario()
+        private void EditarUsuario()
         {
             using (var banco = new ComandaDBContext())
             {
-                string nome = TxtLogin.Text;
+                string nome = TxtNome.Text;
                 string senha = TxtSenha.Text;
                 string email = TxtEmail.Text;
                 int ativo = 1;
-                string perfil = comboBox1.Text;
+                string perfil = CBPerfil.Text;
                 Usuario usuario = banco.Usuarios.First(x => x.Id == _usuario.Id);
                 usuario.Nome = nome;
                 usuario.Senha = senha;
@@ -113,39 +107,87 @@ namespace SenacFoods
         {
             if (TxtSenha.TextLength <= 5)
             {
-    
                 MessageBox.Show("Senha pequena", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TxtSenha.Text = null;
             }
 
+            if (TxtSenha.TextLength == 0)
+            {
+                TxtSenha.Text = "SENHA";
+            }
         }
 
-        private void TxtLogin_Enter(object sender, EventArgs e)
+        private void TxtNome_Enter(object sender, EventArgs e)
         {
-            if (TxtLogin.Text != null) { 
-            TxtLogin.Text = null;
+            if (_usuario == null)
+            {
+                if (TxtNome.Text != null)
+                {
+                    TxtNome.Text = null;
+                }
             }
         }
 
         private void TxtSenha_Enter(object sender, EventArgs e)
         {
-            if (TxtSenha.Text != null) { 
-            TxtSenha.Text = null;
+            if (_usuario == null)
+            {
+                if (TxtSenha.TextLength > 0)
+                {
+                    TxtSenha.Text = null;
+                }
             }
         }
 
-        private void textBox2_Enter(object sender, EventArgs e)
+        private void TxtConfSenha_Enter(object sender, EventArgs e)
         {
-            if (textBox2.Text != null) {
-            textBox2.Text = null;
+            if (_usuario == null)
+            {
+                if (TxtConfSenha.Text != null)
+                {
+                    TxtConfSenha.Text = null;
+                }
             }
-
         }
 
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void TxtEmail_Enter(object sender, EventArgs e)
         {
-            if (textBox2.Text != null) { 
-            TxtEmail.Text = null;
+            if (_usuario == null)
+            {
+                if (TxtEmail.Text != null)
+                {
+                    TxtEmail.Text = null;
+                }
             }
+        }
+
+        private void TxtNome_Leave(object sender, EventArgs e)
+        {
+            if (TxtNome.TextLength == 0)
+            {
+                TxtNome.Text = "NOME";
+            }
+        }
+
+        private void TxtConfSenha_Leave(object sender, EventArgs e)
+        {
+            if (TxtConfSenha.TextLength == 0)
+            {
+                TxtConfSenha.Text = "CONFIRMAR SENHA";
+            }
+        }
+
+        private void TxtEmail_Leave(object sender, EventArgs e)
+        {
+            if (TxtEmail.TextLength == 0)
+            {
+                TxtEmail.Text = "EMAIL";
+            }
+        }
+
+        private void minimiza_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
 
         }
     }

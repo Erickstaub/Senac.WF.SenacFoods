@@ -32,15 +32,15 @@
             btnEntrar = new Button();
             label1 = new Label();
             TxtSenha = new TextBox();
-            TxtLogin = new TextBox();
+            TxtNome = new TextBox();
             pictureBox2 = new PictureBox();
             panel2 = new Panel();
             minimiza = new Label();
             fecha = new Label();
             pictureBox1 = new PictureBox();
             TxtEmail = new TextBox();
-            textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
+            TxtConfSenha = new TextBox();
+            CBPerfil = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -85,22 +85,23 @@
             TxtSenha.Enter += TxtSenha_Enter;
             TxtSenha.Leave += TxtSenha_Leave;
             // 
-            // TxtLogin
+            // TxtNome
             // 
-            TxtLogin.BackColor = SystemColors.HighlightText;
-            TxtLogin.Font = new Font("Comic Sans MS", 18F);
-            TxtLogin.ForeColor = SystemColors.ControlText;
-            TxtLogin.Location = new Point(362, 98);
-            TxtLogin.Name = "TxtLogin";
-            TxtLogin.Size = new Size(366, 58);
-            TxtLogin.TabIndex = 17;
-            TxtLogin.Text = "NOME";
-            TxtLogin.Enter += TxtLogin_Enter;
+            TxtNome.BackColor = SystemColors.HighlightText;
+            TxtNome.Font = new Font("Comic Sans MS", 18F);
+            TxtNome.ForeColor = SystemColors.ControlText;
+            TxtNome.Location = new Point(362, 98);
+            TxtNome.Name = "TxtNome";
+            TxtNome.Size = new Size(366, 58);
+            TxtNome.TabIndex = 17;
+            TxtNome.Text = "NOME";
+            TxtNome.Enter += TxtNome_Enter;
+            TxtNome.Leave += TxtNome_Leave;
             // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(24, 116);
+            pictureBox2.Location = new Point(24, 98);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(224, 223);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -128,6 +129,7 @@
             minimiza.Size = new Size(48, 55);
             minimiza.TabIndex = 7;
             minimiza.Text = "~";
+            minimiza.Click += minimiza_Click;
             // 
             // fecha
             // 
@@ -153,55 +155,58 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // textBox1
+            // TxtEmail
             // 
             TxtEmail.BackColor = SystemColors.HighlightText;
             TxtEmail.Font = new Font("Comic Sans MS", 18F);
             TxtEmail.ForeColor = SystemColors.ControlText;
             TxtEmail.Location = new Point(362, 290);
-            TxtEmail.Name = "textBox1";
+            TxtEmail.Name = "TxtEmail";
             TxtEmail.Size = new Size(366, 58);
             TxtEmail.TabIndex = 21;
             TxtEmail.Text = "EMAIL";
-            TxtEmail.Enter += textBox1_Enter;
+            TxtEmail.Enter += TxtEmail_Enter;
+            TxtEmail.Leave += TxtEmail_Leave;
             // 
-            // textBox2
+            // TxtConfSenha
             // 
-            textBox2.BackColor = SystemColors.HighlightText;
-            textBox2.Font = new Font("Comic Sans MS", 18F);
-            textBox2.ForeColor = SystemColors.ControlText;
-            textBox2.Location = new Point(362, 226);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(366, 58);
-            textBox2.TabIndex = 22;
-            textBox2.Text = "CONFIRMAR SENHA";
-            textBox2.Enter += textBox2_Enter;
+            TxtConfSenha.BackColor = SystemColors.HighlightText;
+            TxtConfSenha.Font = new Font("Comic Sans MS", 18F);
+            TxtConfSenha.ForeColor = SystemColors.ControlText;
+            TxtConfSenha.Location = new Point(362, 226);
+            TxtConfSenha.Name = "TxtConfSenha";
+            TxtConfSenha.Size = new Size(366, 58);
+            TxtConfSenha.TabIndex = 22;
+            TxtConfSenha.Text = "CONFIRMAR SENHA";
+            TxtConfSenha.Enter += TxtConfSenha_Enter;
+            TxtConfSenha.Leave += TxtConfSenha_Leave;
             // 
-            // comboBox1
+            // CBPerfil
             // 
-            comboBox1.Font = new Font("Segoe UI", 14F);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Admin", "Operador", "Usuario" });
-            comboBox1.Location = new Point(24, 400);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(224, 46);
-            comboBox1.TabIndex = 23;
+            CBPerfil.Font = new Font("Segoe UI", 14F);
+            CBPerfil.FormattingEnabled = true;
+            CBPerfil.Items.AddRange(new object[] { "Admin", "Operador", "Usuario" });
+            CBPerfil.Location = new Point(24, 400);
+            CBPerfil.Name = "CBPerfil";
+            CBPerfil.Size = new Size(224, 46);
+            CBPerfil.TabIndex = 23;
             // 
             // FrmUsuarioCad
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox2);
+            Controls.Add(CBPerfil);
+            Controls.Add(TxtConfSenha);
             Controls.Add(TxtEmail);
             Controls.Add(btnEntrar);
             Controls.Add(label1);
             Controls.Add(TxtSenha);
-            Controls.Add(TxtLogin);
+            Controls.Add(TxtNome);
             Controls.Add(pictureBox2);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmUsuarioCad";
             Text = "FrmUsuarioCad";
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -217,14 +222,14 @@
         private Button btnEntrar;
         private Label label1;
         private TextBox TxtSenha;
-        private TextBox TxtLogin;
+        private TextBox TxtNome;
         private PictureBox pictureBox2;
         private Panel panel2;
         private Label minimiza;
         private Label fecha;
         private PictureBox pictureBox1;
         private TextBox TxtEmail;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
+        private TextBox TxtConfSenha;
+        private ComboBox CBPerfil;
     }
 }

@@ -25,27 +25,7 @@ namespace SenacFoods
             prm.Show();
         }
 
-        private void TxtLogin_Enter(object sender, EventArgs e)
-        {
-            //TxtLogin.Text = string.Empty;
-        }
 
-        private void TxtLogin_Leave(object sender, EventArgs e)
-        {
-            //if (TxtLogin.Text == string.Empty)
-            // TxtLogin.Text = "USUARIO";
-        }
-
-        private void TxtSenha_Enter(object sender, EventArgs e)
-        {
-            // TxtSenha.Text = string.Empty;
-        }
-
-        private void TxtSenha_Leave(object sender, EventArgs e)
-        {
-            //   if (TxtSenha.Text == string.Empty)
-            //  TxtSenha.Text = "SENHA";
-        }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
@@ -85,7 +65,8 @@ namespace SenacFoods
                 ususelec = dataGridView1.Rows[e.RowIndex].DataBoundItem as Usuario;
                 btnEditar.Enabled = true;
                 btnExcluir.Enabled = true;
-               
+               string selec = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                label2.Text = selec;
             }
         }
 
@@ -96,17 +77,26 @@ namespace SenacFoods
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (ususelec != null)
+            DialogResult confirmacao = MessageBox.Show("Você tem certesa disso?!", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (confirmacao == DialogResult.Yes)
             {
-                using (var bd = new ComandaDBContext())
+                if (ususelec != null)
                 {
-                    bd.Usuarios.Remove(ususelec);
-                    bd.SaveChanges();
-                }
-                MessageBox.Show("Usuario excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                BuscarUsuario();
-                ususelec = null;
 
+                    using (var bd = new ComandaDBContext())
+                    {
+                        bd.Usuarios.Remove(ususelec);
+                        bd.SaveChanges();
+                    }
+                    MessageBox.Show("Usuario excluido com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    BuscarUsuario();
+                    ususelec = null;
+
+                }
+            }
+            else
+            {
+                ususelec = null;
             }
         }
 
@@ -126,6 +116,12 @@ namespace SenacFoods
                 BuscarUsuario();
                 ususelec = null;
             }
+        }
+
+        private void minimiza_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+
         }
     }
 }

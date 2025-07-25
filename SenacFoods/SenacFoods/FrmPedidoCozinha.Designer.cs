@@ -90,6 +90,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmPedidoCozinha";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";

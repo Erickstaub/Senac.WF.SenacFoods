@@ -189,6 +189,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmMesaCad";
             Text = "FrmMesaCad";
             Load += FrmMesaCad_Load;

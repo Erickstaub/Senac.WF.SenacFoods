@@ -36,6 +36,7 @@
             label1 = new Label();
             txtPesquisa = new TextBox();
             groupBox1 = new GroupBox();
+            label2 = new Label();
             pictureBox2 = new PictureBox();
             btnmaisitem = new Button();
             btnEditar = new Button();
@@ -69,6 +70,7 @@
             minimiza.Size = new Size(48, 55);
             minimiza.TabIndex = 7;
             minimiza.Text = "~";
+            minimiza.Click += minimiza_Click;
             // 
             // fecha
             // 
@@ -113,6 +115,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(pictureBox2);
             groupBox1.Controls.Add(btnmaisitem);
             groupBox1.Controls.Add(btnEditar);
@@ -125,10 +128,19 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Usuario";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 16F);
+            label2.Location = new Point(591, 226);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 45);
+            label2.TabIndex = 18;
+            // 
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(533, 30);
+            pictureBox2.Location = new Point(535, 0);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(224, 223);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -194,6 +206,7 @@
             Controls.Add(groupBox1);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FrmUsuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";
@@ -202,6 +215,7 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
@@ -222,5 +236,6 @@
         private Button btnExcluir;
         private DataGridView dataGridView1;
         private PictureBox pictureBox2;
+        private Label label2;
     }
 }
